@@ -1,0 +1,8 @@
+Monday      - 8/6/20    - Studied how lucid works from tensorflow and about visualization of CNN.
+Teusday     - 9/6/20    - Studied 2 more papers on visualization of CNN.
+Wednesday   - 10/6/20   - Implemented the above papers on google colab.
+Thursday    - 11/6/20   - Started studying flask to implement our model on a webpage.
+Friday      - 12/6/20   - Read about html and css.
+Saturday    - 13/6/20   - Modified our model so it can take any model user gives and has output about every layer and chanel.
+Sunday      - 14/6/20   - Started using flask to implement our model on a webpage.
+Monday      - 15/6/20   - We were unable to process input to our model and worked on solving that
