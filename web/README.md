@@ -4,3 +4,5 @@ First install all the required packages -
 # pip install -r requirement.txt
 Then go to directory and run 
 # python app.py
+
+Then copy the localhost address and open in your browser
