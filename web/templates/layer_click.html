@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% if ops=="error" %}
+    <h1> <mark> oops!</mark> </h1>
+    <h3>The output of this layer can not be represented in the image format</h3>
+    {% endif %}
+    <div class="content">
+       <pre style="font-size: 20px;color: blue;margin-bottom: 5px;">
+Layer name: <h5>{{name}}</h5>
+Output shape: <h5>{{out_shape}}</h5></pre>
+    </div>
+    {% for name in list %}
+    <img src="{{ url_for('static', filename=name) }}" alt="just image" width=800 >
+    {% endfor %}
+
+{% endblock content %}

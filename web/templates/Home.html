@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <!-- adding bootstap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+            .alert {
+              padding: 5px;
+              background-color: #8cf0c9;
+              color: black;
+            }
+            
+            .closebtn {
+              margin-left: 25px;
+              color: white;
+              font-weight: bold;
+              float: right;
+              font-size: 30px;
+              line-height: 20px;
+              cursor: pointer;
+              transition: 0.5s;
+            }
+            
+            .closebtn:hover {
+              color: black;
+            }
+    </style>
+
+    {% if title %}
+        <title>Model Visualization - {{ title }}</title>
+    {% else %}
+        <title>Model Visualization</title>
+    {% endif %}
+
+</head>
+
+<body>
+        <script>
+            setTimeout(function() {
+                $('#successMessage').fadeOut('fast');
+            }, 30000);
+        </script>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+          <div class="container">
+            
+            <div class="collapse navbar-collapse" id="navbarToggle">
+              <div class="navbar-nav mr-auto">
+                    <div>
+                            <p></p>
+                        </div>
+                        <a style="font-size: 15px;color: rgb(250, 246, 246);" href="{{ url_for('home') }}">Home</a> 
+                        <a class="nav-item nav-link" style="font-size: 15px;color: rgb(247, 244, 244);margin-left: 45px;" href="{{ url_for('about') }}">About</a>
+              </div>
+              <!-- Navbar Right Side -->
+            </div>
+          </div>
+        </nav>
+      </header>
+
+    <main role="main" class="container">   
+                     
+        <div class="content-section">
+            <form method='POST' action="" enctype="multipart/form-data">
+                   
+                <fieldset class="form-group">
+                        <legend class="border-bottom mb-4" style="color:black;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 30px;">Visualize Your Model</legend>
+                        <div class="form-group">
+                                <label for="model">Model File</label><small>(please select a file in the .ckpt/.pb/.h5 format )</small>
+                                <input class="form-control form-control-lg" type="file" id="model" name="model" placeholder="Add model file">
+                                {% with messages = get_flashed_messages(with_categories=true) %}
+                                    {% if messages %}
+                                        {% for category, message in messages %}
+                                        {% if category=="error" %}
+                                            <div class="alert alert-{{ category }}" style="background-color: #8cf0c9;">
+                                                {{message}} 
+                                            </div> 
+                                        {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endwith %}
+                                
+                        </div>
+                        <div class="form-group">
+                                <label for="image">Image File</label><small>(please select a file in the .jpg/.png/.jpeg format )</small>
+                                <input class="form-control form-control-lg" type="file" id="image" name="image" placeholder="Add image file">
+                                {% with messages = get_flashed_messages(with_categories=true) %}
+                                    {% if messages %}
+                                        {% for category, message in messages %}
+                                            {% if category=="warning" %}
+                                            <div class="alert alert-{{ category }}">
+                                                {{ message }}
+                                            </div> 
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endwith %}
+                                
+                                
+                        </div>
+                        <div class="form-group">
+                                <label for="modelname">Model name:</label>
+                                <input class="form-control form-control-lg" type="text" id="modelname" name="modelname" placeholder="Model name" minlength="3" maxlength="8">
+                                
+                        </div>
+                </fieldset>
+                <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+        
+    </main>
+
+
+</body>
+</html>

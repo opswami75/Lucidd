@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- adding bootstap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+        text-align: left;    
+    }
+    </style>
+
+    {% if title %}
+        <title>Model Visualization - {{ title }}</title>
+    {% else %}
+        <title>Model Visualization</title>
+    {% endif %}
+</head>
+<body>
+        <header class="site-header">
+            <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="navbarToggle">
+                        <div class="navbar-nav mr-auto">
+                            <div>
+                                <p></p>
+                            </div>
+                            <a style="font-size: 15px;color: rgb(250, 246, 246);" href="{{ url_for('home') }}">Home</a> 
+                            <a class="nav-item nav-link" style="font-size: 15px;color: rgb(247, 244, 244);margin-left: 45px;" href="{{ url_for('about') }}">About</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block content %}{% endblock %}
+            </div>
+            <div class="col-md-4">
+            
+                {% block content1 %}{% endblock content1%}
+            
+            </div>
+        </div>
+        </main>
+
+</body>
+</html>

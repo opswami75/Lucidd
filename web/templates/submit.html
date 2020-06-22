@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+    <center style="font-size: 25px;color: blue;margin-bottom: 5px;"><strong>Model Summary</strong></center>
+
+    {% for para in dic.para %}
+        <center style="font-size: 15px;color:black;margin-top: 5px;">{{para}}</center>
+    {% endfor %}
+    <!-- <div class="container">
+    <mark style="margin-bottom: 5px;margin-top: 15px;margin-left: 200px;font-size: 20px;">Note - click on the layer name to visualize the layer</mark> 
+    </div> -->
+    <center style="font-size: 15px;color:black;margin-bottom: 20px;"></center>
+    <table style="width:100%">
+        <tr>
+            {% for heading in dic.heading %}
+                <th>{{heading}}</th>
+            {% endfor %} 
+        </tr>
+        {% for i in range(0,count) %}
+        <tr>
+          <td>{{i+1}}.</td>
+          <td><a class="nav-item nav-link" href="/layer_click/{{dic.layer_name[i]}}/{{i}}"><u>{{dic.layer_name[i]}}</u></a></td>
+          <td>{{dic.output_shape[i]}}</td>
+          <td>{{dic.para_counts[i]}}</td>
+          <td>{{dic.connection[i]}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+
+{% endblock content %}
+
+{% block content1 %}
+    <!-- <div class="content-section">
+    <p style="font-size: 20px;color: red;"><mark>click on the layer name to visualize the layer</mark> </p>
+    </div> -->
+    <center style="font-size: 25px;color: blue;margin-bottom: 5px;"><strong>Model Plot</strong></center>
+    <br>
+    <img src="{{ url_for('static', filename=xx) }}" alt="just image" width=400 >
+    <br>
+    <br>
+    <br>
+    <br>
+
+{% endblock content1 %}
