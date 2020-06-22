@@ -7,5 +7,5 @@ Then go to directory and run
 
 Then copy the localhost address from terminal and open in your browser
 
-Link for demo video of this web app : 
-[a link](https://drive.google.com/file/d/15AoAN1jEusGhsMnv_EAHC5sDeEa6IhF5/view?usp=sharing)
+Demo video :
+[Link for demo video of this web app](https://drive.google.com/file/d/15AoAN1jEusGhsMnv_EAHC5sDeEa6IhF5/view?usp=sharing)
