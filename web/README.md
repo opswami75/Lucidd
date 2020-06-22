@@ -5,4 +5,4 @@ First install all the required packages -
 Then go to directory and run 
 # python app.py
 
-Then copy the localhost address and open in your browser
+Then copy the localhost address from terminal and open in your browser
